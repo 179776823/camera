@@ -1,0 +1,573 @@
+{extend name='./common/header'}
+{block name='mid'}
+    <style>
+		.table{
+            width:100%;
+            max-width: 100%;
+        }
+        .table>thead>tr{
+            background: #edf7ff;
+        }
+        .table>thead>tr>th {
+            white-space: nowrap;
+            padding: 8px;
+            line-height: 1.42857143;
+        }
+
+    </style>
+    
+    <div style="margin: 0 15px;">
+        <!-- 停车库场设备管理 -->
+		<div class="table-responsive " style="width: 20%;border:1px solid #b6b6b6;height:430px;float: left;">
+		  <table class="table table-striped" style="height: 430px;">
+		    <thead>
+		      <tr style="position: relative;">
+		        <th style="text-align: center;">设备编号</th>
+		        <th style="text-align: center;">心跳时间</th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+		    {foreach $park_list as $key=>$v } 
+		      <tr onclick="seach(this)" keyword="{$v['deviceCode']}" deviceId="{$v['deviceId']}">
+		        <td style="width: 110px;">{$v['deviceCode']}</td>
+		        <td></td>    
+		      </tr>	
+		    {/foreach}
+		    {for start="1" end="13"}
+			  <tr style="height: 35px;">
+		        <td></td>
+		        <td></td>	        
+		      </tr>	
+			{/for}      
+		    </tbody>
+		  </table> 
+		  
+		</div>
+		<!-- 事件列表 -->
+		<div id="DjJyFTbh_content" class="table-responsive " style="width: 60%;border:1px solid #b6b6b6;height:750px;margin-left: 20.5%;">
+		  <table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th >触发时间</th>
+		        <th >事件</th>
+		        <th >车牌</th>
+		        <th >设备编码</th>		       
+		      </tr>
+		    </thead>
+
+		    <tbody id="parking_event">		    
+		        <!-- 事件列表 -->
+		    </tbody>
+		    <tbody>
+		     {for start="1" end="22"}
+			  <tr style="height: 35px;">
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>		            
+		      </tr>	
+			 {/for} 
+		    </tbody>
+		  </table> 
+		  
+		</div>
+		<div style="width: 19%;border:1px solid #b6b6b6;height:750px;margin-top:-750px;margin-left: 81%;overflow: auto;">
+			<table class="table table-striped">		    
+			    <tbody>
+			     <tr class="images_base64">
+					<td><img src="" alt="">	 </td>
+			     </tr>
+			     {for start="1" end="22"}
+				  <tr style="height: 35px;">
+			        <td></td>
+			        	            
+			      </tr>	
+				 {/for} 
+			    </tbody>
+			</table> 
+		</div>
+
+		<div id="mdWRzz8t_content" style="width: 20%;border:1px solid #b6b6b6;height:310px;margin-top: -310px;overflow: auto;">
+			<table class="table table-striped">		    
+			    <tbody id="mdWRzz8t_userrows">
+			     
+			     {for start="1" end="22"}
+				  <tr style="height: 35px;">
+			        <td></td>
+			        <td></td>	            
+			      </tr>	
+				 {/for} 
+			    </tbody>
+			</table> 
+		</div>
+	</div>
+    <div class="elastic">
+		<div class="middle">	
+			<div class="close_x"><span>x</span></div>	
+			<div class="form-horizontal" id="form-submit">
+			  <input type="hidden" id="deviceId" value="">
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">设备编号</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" name="deviceCode" value="" id="deviceCode" placeholder="请输入设备编号">
+			    </div>
+			    <label>
+			      <input id="isHidden" type="checkbox">屏蔽
+			    </label>
+			  </div>
+
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">停车场名称</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" name="parkName" value="" id="parkName" placeholder="请输入停车场名称">
+			    </div>
+			    <label>
+			      <input id="isCloudDevice" type="checkbox">云设备
+			    </label>
+			  </div>
+			  <div class="form-group">
+			    <label for="lastname" class="col-sm-3 control-label">地址</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" name="address" value="" id="address" placeholder="请输入地址">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="lastname" class="col-sm-3 control-label">车位数量</label>
+			    <div class="col-sm-5">
+			      <input type="number" class="form-control" name="parkNum" value="" id="parkNum" min=0 >
+			    </div>
+			  </div>
+
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">经度</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="lat" value="" id="lat" placeholder="">
+			    </div>
+			    <label for="lastname" class="col-sm-2 control-label">纬度</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="lon" value="" id="lon" placeholder="">
+			    </div>
+			  </div>
+			 
+			  <div class="form-group">
+			    <label for="lastname" class="col-sm-3 control-label">高度</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="alt" value="" id="alt" placeholder="">
+			    </div>
+			    <label for="firstname" class="col-sm-2 control-label">楼层</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="floor" value="" id="floor" placeholder="">
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">坐标系</label>
+			    <div class="col-sm-6">
+				    <select id="gisType" name="gisType" class="form-control">
+						<option value="0">WGS84</option>
+						<option value="1">CGCS2000</option>
+						<option value="2">BD09</option>
+						<option value="3">GCJ02</option>
+						<option value="4">西安80</option>
+						<option value="5">北京54</option>
+						<option value="6">其他</option>
+					</select>
+				</div>
+			  </div>
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">设备备注</label>
+			    <div class="col-sm-6">
+			      <textarea class="form-control" rows="3" id="note"></textarea>
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+			    <div class="col-sm-offset-5 col-sm-10">
+			      <button class="btn btn-primary" id="parking_submit" style="padding: 5px 45px;">保存</button>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
+	</div>
+	<div id="rightmenu" style="display: none; z-index: 7; position: absolute; top: 160px; left: 145px; visibility: visible;border: 2px solid #3875d7;background-color: #fffff0;">
+	    <ul id="rightmenu_inner" style="display: inline-block; top: 0px; left: 0px;padding: 10px;">
+	        <li id="XpEpbMtT1P_item" onclick="formBlock(this)" action="addDevice" args='add'><span id="XpEpbMtT1P_caption">添加设备</span></li>
+	        <li id="HxZTnDrYia_item" onclick="formBlock(this)" action="editDevice" args='edit'><span id="HxZTnDrYia_caption">编辑设备</span></li>
+
+	        <li id="XU5YhKVeTl_item" action="delDevice" args='del'><span id="XU5YhKVeTl_caption">删除设备</span></li>
+	    </ul>
+	</div>
+	<style>
+	    .elastic{
+	    	display: none;
+			z-index: 9999;
+			width: 550px;
+			margin: 0 auto;
+			border: 1px solid #edf3fe;
+			box-shadow: 0px 0px 1px #000;
+			background-color: #E4DCCA;
+			top: 0px;
+			position: fixed;
+			left: 32%;
+	    }
+		.middle{
+			margin-top: 20px;
+			font-size: 15px;
+			width: 550px;
+		}
+
+		#rightmenu ul li{ 
+			list-style: none;
+			cursor: pointer;
+			padding-bottom: 5px;
+		}
+		
+		.row_current{
+			background-color: #337ab7 !important;
+			color: #fff;
+		}
+
+		.close_x{
+			width: 20px;
+			margin-left: 95%;
+			font-size: 17px;
+			margin-top: -15px;
+			color: #333;
+			text-align: center;
+			cursor: pointer;
+		}
+
+	</style>
+	<script>
+		document.oncontextmenu = function(){return false};
+		var res = document.getElementById('rightmenu');      //找到id为box的div
+        $('.table-responsive').mousedown(function(e){
+            if(e.which!=1){
+              if(e.which===3){ // 1 = 鼠标左键 left; 2 = 鼠标中键; 3 = 鼠标右键                
+                var x = 10;
+                var y = 10;
+                // alert(e.clientX+':'+e.clientY);
+                $("#rightmenu").css("top",e.clientY+'px');//设置提示div的位置
+                $("#rightmenu").css("left",e.clientX+'px');
+                if($('#rightmenu').css('display')=='none'){
+                    res.style.display = 'block';  //显示div盒子
+                }else{
+                    res.style.display = 'none';
+                }
+                      
+              }else{
+                res.style.display = 'none';         //否则不显示div盒子
+              } 
+            }
+          
+          return true;//阻止链接跳转
+        })
+
+        function seach(obj){
+        	var keyword=$(obj).attr('keyword');
+        	var deviceId=$(obj).attr('deviceId');
+        	var trs = $(obj).parent().find('tr'); //获取所有tr
+	        if(trs.hasClass('row_current')){ //判断这些tr 有没有Class row_current
+	            trs.removeClass('row_current');//把class row_current 移除
+	        }
+        	$(obj).addClass("row_current");
+        	
+        	$('#HxZTnDrYia_item').attr('deviceId',deviceId);
+        	$('#XU5YhKVeTl_item').attr('deviceId',deviceId);
+        	$.post("{:url('index/parking/parking_Event')}",{keyword:keyword},function(data){
+	            park_event(data);
+	            device_info(data.info); 	            
+	        });
+        }
+        
+
+        //事件列表模块调用方法
+	    function park_event(data){
+	        document.getElementById('DjJyFTbh_content').scrollTop = 0;
+	        $('#parking_event').empty();
+	        for (var i = 0; i <= data.list.length - 1; i++) {
+	            
+	            $str = $('<tr onclick="pic_event(this)" name='+data.list[i]['platePic']+'></tr>'); 	            	            
+	            $('#parking_event').append($str);
+
+	            var $std1=$('<td>'+data.list[i]['triggerTime']+'</td>');
+	            $str.append($std1);
+
+	            var $std2=$('<td>'+data.list[i]['eventType']+'</td>');
+	            $str.append($std2);
+
+	            var $std3=$('<td>'+data.list[i]['plateNo']+'</td>');
+	            $str.append($std3);
+
+	            var $std4=$('<td>'+data.list[i]['deviceCode']+'</td>');
+	            $str.append($std4);	            
+	        }
+	    }
+
+	    function pic_event(obj){
+        	var name=$(obj).attr('name');
+        	var trs = $(obj).parent().find('tr'); //获取所有tr
+	        if(trs.hasClass('row_current')){ //判断这些tr 有没有Class row_current
+	            trs.removeClass('row_current');//把class row_current 移除
+	        }
+        	$(obj).addClass("row_current");
+        	
+    		$('.images_base64').empty();
+			var $td = $('<td><img src='+name+' style="width:100%;height:100%;" /></td>');
+            $('.images_base64').append($td);  
+
+        }
+
+        function device_info(data){
+	        document.getElementById('mdWRzz8t_content').scrollTop = 0;
+	        $('#mdWRzz8t_userrows').empty();
+	        for (var i = 0; i <= 12; i++) {
+	            var $tr = $('<tr></tr>');               
+	                          
+	            $('#mdWRzz8t_userrows').append($tr);
+	            if(i==0){
+	                var $td1=$('<td>停车场名称</td>');
+	                $tr.append($td1);
+	                var $td2=$('<td>'+data['parkName']+'</td>');
+	                $tr.append($td2);
+	                               
+	            }else if(i==1){               
+	                var $td1=$('<td>地址</td>');
+	                $tr.append($td1);
+	                var $td2=$('<td>'+data['address']+'</td>');
+	                $tr.append($td2); 
+	                                
+	            }else if(i==2){                
+	                var $td1=$('<td>设备编号</td>');
+	                $tr.append($td1);
+	                var $td2=$('<td>'+data['deviceCode']+'</td>');
+	                $tr.append($td2); 
+	                                
+	            }else if(i==3){               
+	                var $td1=$('<td>心跳时间</td>');
+	                $tr.append($td1);
+	                var $td2=$('<td>'+data['triggerTime']+'</td>');
+	                $tr.append($td2); 
+	                                   
+	            }else if(i==4){
+	                var $td1=$('<td>车位数量</td>');
+	                             
+	                $tr.append($td1);
+	                var $td2=$('<td>'+data['parkNum']+'</td>');
+	                $tr.append($td2); 
+	                                 
+	            }else if(i==5){
+	                var $td1=$('<td>剩余车位</td>');
+	                
+	                $tr.append($td1);
+	                var $td2=$('<td></td>');
+	                $tr.append($td2); 
+	                                    
+	            }else if(i==6){
+	                var $td1=$('<td>备注说明</td>');
+	                
+	                $tr.append($td1);
+	                var $td2=$('<td>'+data['note']+'</td>');
+	                $tr.append($td2); 
+	                                   
+	            }else if(i==7){
+	                var $td1=$('<td>经度</td>');
+	                
+	                $tr.append($td1);
+	                var $td2=$('<td>'+data['lat']+'</td>');
+	                $tr.append($td2);                    
+	                                 
+	            }else if(i==8){
+	                var $td1=$('<td>纬度</td>');               
+	                $tr.append($td1);
+	                
+	                var $td2=$('<td>'+data['lon']+'</td>');
+	                $tr.append($td2); 
+	                               
+	            }else if(i==9){
+	                var $td1=$('<td>高度</td>');
+	                
+	                $tr.append($td1);
+	                var $td2=$('<td>'+data['alt']+'</td>');     	
+	                $tr.append($td2); 
+	                                   
+	            }else if(i==10){
+	                var $td1=$('<td>楼层</td>');
+	                
+	                $tr.append($td1);
+	                var $td2=$('<td>'+data['floor']+'</td>');
+	                $tr.append($td2); 
+	                                  
+	            }else if(i==11){
+	                var $td1=$('<td>坐标系</td>');
+	                
+	                $tr.append($td1);
+	               
+	                var $td2=$('<td>WGS84</td>');
+	                $tr.append($td2); 
+	                                 
+	            }else if(i==12){               
+	                var $td1=$('<td>设备标识</td>');
+	                $tr.append($td1);
+	                var $td2=$('<td></td>');
+	                $tr.append($td2); 
+	                               
+	            }
+	        }
+	    }
+        $('#parking_submit').click(function(){
+   			var deviceCode = $('#deviceCode').val();
+   			var address = $('#address').val();
+       	    var parkName = $('#parkName').val();
+       	    var isHidden = $('#isHidden').is(':checked') ? 1:0;
+       	    var isCloudDevice = $('#isCloudDevice').is(':checked') ? 1:0;
+       	    var parkNum = $('#parkNum').val();
+       	    var lat = $('#lat').val();
+       	    var lon = $('#lon').val();
+       	    var alt = $('#alt').val();
+       	    var floor = $('#floor').val();
+       	    var gisType = $('#gisType').val();
+       	    var note = $('#note').val();
+       	    var deviceId = $('#deviceId').val();
+       	    if(deviceId==''){
+       	    	$.ajax({
+	                url: "{:url('api/import/addDevice')}",
+	                type: 'post',
+	                dataType: 'json',
+	                data: {
+	                	deviceCode:deviceCode,
+	                	address:address,
+	                	parkName:parkName,
+	                	isHidden:isHidden,
+	            		isCloudDevice:isCloudDevice,
+	            		parkNum:parkNum,
+	            		lat:lat,
+	            		lon:lon,
+	            		alt:alt,
+	            		floor:floor,
+	            		gisType:gisType,
+	            		note:note,
+	            		type:'parking'
+	                },
+	                success:function(data){
+	                	if(data.code==500){
+	            			alert(data.message);
+	                	}else{
+	                		alert(data.message);
+	                		location.reload(); 
+	                	}
+	                	
+	                },
+	                fail:function(){
+	                }
+	            })
+       	    }else{
+       	    	$.ajax({
+	                url: "{:url('api/import/updateDevice')}",
+	                type: 'post',
+	                dataType: 'json',
+	                data: {
+	                	deviceCode:deviceCode,
+	                	address:address,
+	                	parkName:parkName,
+	                	isHidden:isHidden,
+	            		isCloudDevice:isCloudDevice,
+	            		parkNum:parkNum,
+	            		lat:lat,
+	            		lon:lon,
+	            		alt:alt,
+	            		floor:floor,
+	            		gisType:gisType,
+	            		note:note,
+	            		deviceId:deviceId,
+	            		type:'parking'
+	                },
+	                success:function(data){
+	                	if(data.code==500){
+	            			alert(data.message);
+	                	}else{
+	                		alert(data.message);
+	                		
+	                	}
+	                	
+	                },
+	                fail:function(){
+	                }
+	            })
+       	    }
+       	    
+        });
+
+        // 点击显示添加设备表单弹框
+        function formBlock(obj){
+        	var action = $(obj).attr('args');
+        	var lis = $(obj).parent().find('li'); //获取所有li
+	        if(lis.hasClass('row_current')){ //判断这些li 有没有Class row_current
+	            lis.removeClass('row_current');//把class row_current 移除
+	        }
+        	$(obj).addClass("row_current");
+        	if(action=='edit'){
+        		var deviceId = $(obj).attr('deviceId');
+        		if(deviceId==undefined){
+        			alert('没有选中设备');
+                  	return false;
+        		}
+        		$('#deviceId').val(deviceId);
+        		$.post("{:url('index/parking/parkingOne')}",{deviceId:deviceId},function(data){
+    				if(data.status==0){
+    					alert(data.msg);
+    					return;
+    				}else{
+    					$('#deviceCode').val(data.info.deviceCode);
+			   			$('#address').val(data.info.address);
+			       	    $('#parkName').val(data.info.parkName);
+			       	    if(data.info.isHidden==1){
+			       	    	$("#isHidden").attr("checked",true);
+			       	    }
+			       	    if(data.info.isCloudDevice==1){
+			       	    	$("#isCloudDevice").attr("checked",true);
+			       	    }
+
+			       	    $('#parkNum').val(data.info.parkNum);
+			       	    $('#lat').val(data.info.lat);
+			       	    $('#lon').val(data.info.lon);
+			       	    $('#alt').val(data.info.alt);
+			       	    $('#floor').val(data.info.floor);
+			       	    $("#gisType ").get(0).selectedIndex=data.info.gisType;
+			       	    $('#note').val(data.info.note);       	    
+    				}
+		             	            
+		        });
+        	}else{
+        		$('#deviceCode').val('');
+	   			$('#address').val('');
+	       	    $('#parkName').val('');
+	       	    $('#deviceId').val('');
+	       	    $("#isHidden").attr("checked",false);	       	    	       	    
+	       	    $("#isCloudDevice").attr("checked",false);
+	       	    
+	       	    $('#parkNum').val(0);
+	       	    $('#lat').val('');
+	       	    $('#lon').val('');
+	       	    $('#alt').val('');
+	       	    $('#floor').val('');
+	       	    $("#gisType").get(0).selectedIndex=0;
+	       	    $('#note').val(''); 
+        	}
+        	$('.elastic').css('display','block');
+        	
+
+        };
+
+        // 关闭弹框
+        $('.close_x').click(function(){
+        	
+        	$('.elastic').css('display','none');
+        });
+
+	    
+
+	</script>
+{/block}

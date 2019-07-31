@@ -1,0 +1,78 @@
+{extend name='./common/header'}
+{block name='mid'}
+    
+    <div class="elastic">
+	    <h3 style="text-align: center;">服务器配置</h3>
+		<div class="middle">		
+			<form class="form-horizontal"  method="post" id="form-submit">
+			  <input type="hidden" id="server_id" value="">
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-5 control-label">服务器地址</label>
+			    <div class="col-sm-5">
+			      <input type="text" class="form-control" name="address" value="{$server['address']}" id="address" placeholder="请输入地址">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-5 control-label">服务器IP</label>
+			    <div class="col-sm-5">
+			      <input type="text" class="form-control" name="server_ip" value="{$server['server_ip']}" id="server_ip" placeholder="请输入IP">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-5 control-label">服务器端口</label>
+			    <div class="col-sm-5">
+			      <input type="text" class="form-control" name="server_port" value="{$server['server_port']}" id="server_port" placeholder="请输入端口">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="lastname" class="col-sm-5 control-label">数据服务器IP</label>
+			    <div class="col-sm-5">
+			      <input type="text" class="form-control" name="data_ip" value="{$server['data_ip']}" id="data_ip" placeholder="请输入数据服务器IP">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="lastname" class="col-sm-5 control-label">数据服务器端口</label>
+			    <div class="col-sm-5">
+			      <input type="text" class="form-control" name="data_port" value="{$server['data_port']}" id="data_port" placeholder="请输入数据服务器端口">
+			    </div>
+			  </div>
+			  
+			  <div class="form-group" style="text-align: center;">
+			    <div class="col-sm-offset-4 col-sm-4">
+			      <button class="btn btn-primary" id="submits" style="padding: 5px 45px;">保存设置</button>
+			    </div>
+			  </div>
+			</form>
+
+		</div>
+	</div>
+	<style>
+	    .elastic{
+	    	display: block;
+			z-index: 9999;
+			width: 450px;
+			margin: 0 auto;
+			border: 1px solid #edf3fe;
+			box-shadow: 0px 0px 1px #000;
+			background-color: #E4DCCA;
+			top: 85px;
+	    }
+		.middle{
+			margin-top: 25px;
+			font-size: 17px;
+		}
+		.close_x{
+			width: 20px;
+			margin-left: 96%;
+			font-size: 17px;
+			color: #333;
+			text-align: center;
+			cursor: pointer;
+		}
+
+	</style>
+	<script>
+
+        
+	</script>
+{/block}

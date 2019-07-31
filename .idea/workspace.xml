@@ -1,0 +1,761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f6203c05-f68c-44a3-ae25-f7caf829f8d3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/application/agbox/model/Camera.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/agbox/model/FaceEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/agbox/model/FaceImage.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/index/model/Camera.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/index/model/FaceEvent.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/index/model/FaceImage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/controller/Cars.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/controller/Company.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/controller/Device.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/agbox/controller/Device.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/controller/Import.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/agbox/controller/Import.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/controller/Person.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/controller/Schedule.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/controller/Share.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/AccessControlEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/Car.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/Companies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/FaceIdentificationEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/HeartbeatEmergency.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/HeartbeatFace.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/HeartbeatParking.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/House.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/IntrusionEmergencyEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/MonitorImage.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/Parking.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/ParkingEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/People.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/PeopleHouseRelation.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/PerceptinEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/agbox/model/UsbEvent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/common.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/common.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/index/controller/Index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/index/controller/Index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/agbox/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/agbox/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/base/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/base/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/event/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/event/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/route/route.php" beforeDir="false" afterPath="$PROJECT_DIR$/route/route.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/201905/27.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/201905/28.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/201905/30.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/201905/31.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runtime/log/201906/03.log" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/index/controller/Index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="638">
+              <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+              <folding>
+                <element signature="e#38#59#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/index/controller/Device.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+              <folding>
+                <element signature="e#38#59#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/agbox/controller/Device.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="693">
+              <caret line="246" column="87" lean-forward="true" selection-start-line="246" selection-start-column="87" selection-end-line="246" selection-end-column="87" />
+              <folding>
+                <element signature="e#145#172#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/common.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="616">
+              <caret line="105" column="44" lean-forward="true" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/index/controller/Camera.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="517">
+              <caret line="53" column="106" lean-forward="true" selection-start-line="53" selection-start-column="106" selection-end-line="53" selection-end-column="106" />
+              <folding>
+                <element signature="e#38#68#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/route/route.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="27" column="23" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="23" />
+              <folding>
+                <element signature="e#6#80#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>解决</find>
+      <find>解决Firefox浏览器一个很诡异的问题</find>
+      <find>gateway-worker</find>
+      <find>phpMQTT</find>
+      <find>VII</find>
+      <find>pushToPolice</find>
+      <find>pushHeart</find>
+      <find>.html</find>
+      <find>&lt;SCRIPT Language=VBScript&gt;</find>
+      <find>$key</find>
+      <find>文件</find>
+      <find>move_uploaded_file</find>
+      <find>tcpIp</find>
+      <find>Server</find>
+      <find>together</find>
+      <find>isPost</find>
+      <find>unre</find>
+      <find>FaceIdentificationEvent</find>
+      <find>AccessControlEvent</find>
+      <find>HeartbeatParking</find>
+      <find>ParkingEvent</find>
+      <find>PerceptinEvent</find>
+      <find>UsbEvent</find>
+      <find>Devices</find>
+      <find>del</find>
+      <find>regi</find>
+      <find>打印</find>
+      <find>regis</find>
+      <find>192.168.36.12</find>
+      <find>register</find>
+    </findStrings>
+    <dirStrings>
+      <dir>D:\www\datacenter</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/application/.htaccess" />
+        <option value="C:/phpStudy/PHPTutorial/MySQL/my.ini" />
+        <option value="D:/datacenter.sql" />
+        <option value="$PROJECT_DIR$/application/agbox/controller/Base.php" />
+        <option value="$PROJECT_DIR$/../yutian.php" />
+        <option value="$PROJECT_DIR$/application/agbox/model/Devices.php" />
+        <option value="$PROJECT_DIR$/../rhaphp/index.php" />
+        <option value="C:/Windows/System32/drivers/etc/hosts" />
+        <option value="$PROJECT_DIR$/public/index.php" />
+        <option value="$PROJECT_DIR$/application/agbox/model/FaceIdentificationEvent.php" />
+        <option value="$PROJECT_DIR$/config/agbox/database.php" />
+        <option value="$PROJECT_DIR$/config/database.php" />
+        <option value="$PROJECT_DIR$/config/base/database.php" />
+        <option value="$PROJECT_DIR$/config/event/database.php" />
+        <option value="$PROJECT_DIR$/application/index/model/Camera.php" />
+        <option value="$PROJECT_DIR$/application/index/model/FaceEvent.php" />
+        <option value="$PROJECT_DIR$/application/index/model/FaceImage.php" />
+        <option value="$PROJECT_DIR$/application/index/model/User.php" />
+        <option value="$PROJECT_DIR$/application/agbox/model/Camera.php" />
+        <option value="$PROJECT_DIR$/application/agbox/model/FaceEvent.php" />
+        <option value="$PROJECT_DIR$/application/agbox/model/FaceImage.php" />
+        <option value="$PROJECT_DIR$/route/route.php" />
+        <option value="$PROJECT_DIR$/config/log.php" />
+        <option value="$PROJECT_DIR$/application/common.php" />
+        <option value="$PROJECT_DIR$/config/app.php" />
+        <option value="$PROJECT_DIR$/application/index/controller/Index.php" />
+        <option value="$PROJECT_DIR$/application/index/controller/Login.php" />
+        <option value="$PROJECT_DIR$/application/index/view/camera/index.html" />
+        <option value="$PROJECT_DIR$/public/.htaccess" />
+        <option value="$PROJECT_DIR$/application/agbox/controller/Device.php" />
+        <option value="$PROJECT_DIR$/application/index/controller/Camera.php" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="PhpDebugGeneral" hide_empty_superglobals="false" listening_started="true" notify_if_session_was_finished_without_being_paused="false" />
+  <component name="PhpServers">
+    <servers>
+      <server host="192.168.36.11" id="6e4afeb3-294e-47a8-8fee-af370c1de1e7" name="192.168.36.11" />
+      <server host="www.yt1.com" id="664f922e-d9c5-41cf-8ba6-3d82ca00f648" name="www.yt1.com" />
+      <server host="192.168.36.11" id="6929fd50-64a3-4cef-b04a-e60304e86584" name="192.168.36.11 (1)" />
+    </servers>
+  </component>
+  <component name="PhpWebServerValidation" path_to_validation_script="D:\www\datacenter\public" selected_validation_type="LOCAL" web_path_to_validation_script="http://192.168.36.11:8080/" />
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/workerman/gatewayclient" />
+      <path value="$PROJECT_DIR$/vendor/workerman/workerman" />
+    </include_path>
+  </component>
+  <component name="PhpXdebugProxy" port="9000" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="325" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Constants" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../datacenter" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\www\datacenter\config\event" />
+      <recent name="D:\www\datacenter\config\base" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\www\datacenter\config\agbox" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="PHP HTTP Request.request">
+    <configuration default="true" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request" server_name="192.168.36.11">
+      <HttpRequestSettings request_method="POST" />
+      <method v="2" />
+    </configuration>
+    <configuration name="request" type="PhpHttpRequestRunConfigurationType" factoryName="PHP HTTP Request" server_name="192.168.36.11" url="/api/device/getList?type=usb">
+      <HttpRequestSettings request_method="POST" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="192.168.36.11">
+      <method v="2" />
+    </configuration>
+    <configuration name="webpage" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="192.168.36.11" start_url="/api/device/getList?type=usb">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="PHP HTTP Request.request" />
+      <item itemvalue="PHP Web Page.webpage" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6203c05-f68c-44a3-ae25-f7caf829f8d3" name="Default Changelist" comment="" />
+      <created>1558920051183</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558920051183</updated>
+      <workItem from="1558920053643" duration="11014000" />
+      <workItem from="1558940867497" duration="9490000" />
+      <workItem from="1559002770278" duration="17731000" />
+      <workItem from="1559038684168" duration="249000" />
+      <workItem from="1559041800161" duration="1397000" />
+      <workItem from="1559178629966" duration="6780000" />
+      <workItem from="1559185902340" duration="6457000" />
+      <workItem from="1559195970388" duration="712000" />
+      <workItem from="1559197597472" duration="3440000" />
+      <workItem from="1559201067090" duration="3534000" />
+      <workItem from="1559204625807" duration="3841000" />
+      <workItem from="1559210873583" duration="14292000" />
+      <workItem from="1559262666492" duration="30809000" />
+      <workItem from="1559521622589" duration="5662000" />
+      <workItem from="1559537008353" duration="5374000" />
+      <workItem from="1559548155349" duration="2123000" />
+      <workItem from="1559550804990" duration="18480000" />
+      <workItem from="1559608597502" duration="3742000" />
+      <workItem from="1562892512024" duration="5505000" />
+      <workItem from="1562909397300" duration="18000" />
+      <workItem from="1563325684236" duration="886000" />
+      <workItem from="1563329172759" duration="17941000" />
+      <workItem from="1563411769748" duration="24964000" />
+      <workItem from="1563500643340" duration="12815000" />
+      <workItem from="1563757236906" duration="123000" />
+      <workItem from="1563757377648" duration="12827000" />
+      <workItem from="1563844081684" duration="120000" />
+      <workItem from="1563947808970" duration="2238000" />
+      <workItem from="1563952623217" duration="4036000" />
+      <workItem from="1563961895171" duration="5000" />
+      <workItem from="1564024678701" duration="647000" />
+      <workItem from="1564472240105" duration="1008000" />
+      <workItem from="1564475455450" duration="5389000" />
+      <workItem from="1564533394323" duration="12279000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="245928000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25799572" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Changes" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5010661" side_tool="true" weight="0.2936078" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32827735" />
+      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="8" sideWeight="0.4989339" weight="0.4723727" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" weight="0.32936078" />
+      <window_info anchor="right" id="Database" order="0" weight="0.32995737" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18176973" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" />
+      <window_info anchor="bottom" id="Database Changes" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="4" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info anchor="bottom" id="Run" order="7" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/application/command.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/跃天公司记录.txt" />
+    <entry file="file://$PROJECT_DIR$/application/event/controller/Face_tcp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="18" column="26" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding>
+            <element signature="e#143#187#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/event/controller/Face.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <folding>
+            <element signature="e#143#187#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/worker_server.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="36" column="44" selection-start-line="36" selection-start-column="44" selection-end-line="36" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/library/think/App.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2476">
+          <caret line="528" selection-start-line="528" selection-end-line="528" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/base/controller/Image.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/agbox/model/Car.php" />
+    <entry file="file://$PROJECT_DIR$/application/index/model/Camera.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/model/Device.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="5" selection-start-line="10" selection-start-column="4" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/agbox/model/Parking.php" />
+    <entry file="file://$PROJECT_DIR$/application/agbox/model/Devices.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="52" column="18" selection-start-line="52" selection-start-column="18" selection-end-line="52" selection-end-column="18" />
+          <folding>
+            <element signature="e#118#154#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/base/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/event/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/library/think/Request.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6908">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime/log/201907/18.log" />
+    <entry file="file://$PROJECT_DIR$/application/agbox/model/Camera.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="30" selection-start-line="10" selection-start-column="30" selection-end-line="10" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/agbox/model/FaceEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/datacenter.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11406">
+          <caret line="1506" column="50" selection-start-line="1506" selection-start-column="50" selection-end-line="1506" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/agbox/controller/Basic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/agbox/controller/Base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/agbox/controller/Import.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5060">
+          <caret line="239" column="51" selection-start-line="239" selection-start-column="51" selection-end-line="239" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime/log/201907/1562893694-12.log" />
+    <entry file="file://$PROJECT_DIR$/runtime/log/201907/1563512841-19.log" />
+    <entry file="file://$PROJECT_DIR$/runtime/log/201907/19.log" />
+    <entry file="file://$PROJECT_DIR$/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/agbox/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/controller/ResultCode.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/controller/Common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="18" column="6" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../datacenter/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/model/FaceImage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/model/FaceEvent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="59" selection-start-line="18" selection-start-column="59" selection-end-line="18" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/agbox/model/FaceImage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/controller/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+          <folding>
+            <element signature="e#149#187#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/controller/Parking.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/30.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="519">
+          <caret line="4809" column="43" lean-forward="true" selection-start-line="4809" selection-start-column="43" selection-end-line="4809" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/view/camera/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1760">
+          <caret line="239" column="250" selection-start-line="239" selection-start-column="250" selection-end-line="239" selection-end-column="250" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime/log/201907/1564479037-30.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170117">
+          <caret line="21235" column="89" selection-start-line="21235" selection-start-column="81" selection-end-line="21235" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+          <folding>
+            <element signature="e#38#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime/log/201907/30.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490160">
+          <caret line="22280" column="87" selection-start-line="22280" selection-start-column="79" selection-end-line="22280" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="157" column="28" selection-start-line="157" selection-start-column="28" selection-end-line="157" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="20" column="24" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="2" selection-start-line="7" selection-start-column="2" selection-end-line="7" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/route/route.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="23" />
+          <folding>
+            <element signature="e#6#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/library/think/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="877" column="27" selection-start-line="877" selection-start-column="27" selection-end-line="877" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/common.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="105" column="44" lean-forward="true" selection-start-line="105" selection-start-column="44" selection-end-line="105" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/controller/Device.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="e#38#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/index/controller/Camera.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="53" column="106" lean-forward="true" selection-start-line="53" selection-start-column="106" selection-end-line="53" selection-end-column="106" />
+          <folding>
+            <element signature="e#38#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/agbox/controller/Device.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="246" column="87" lean-forward="true" selection-start-line="246" selection-start-column="87" selection-end-line="246" selection-end-column="87" />
+          <folding>
+            <element signature="e#145#172#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

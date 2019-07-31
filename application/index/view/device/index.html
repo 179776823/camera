@@ -1,0 +1,443 @@
+{extend name='./common/header'}
+{block name='mid'}
+    <style>
+		.table{
+            width:100%;
+            max-width: 100%;
+        }
+        .table>thead>tr{
+            background: #edf7ff;
+        }
+        .table>thead>tr>th {
+            white-space: nowrap;
+            padding: 8px;
+            line-height: 1.42857143;
+        }
+
+    </style>
+    
+    <div style="margin: 0 15px;">
+        <!-- 停车库场设备管理 -->
+		<div class="table-responsive " style="width: 30%;border:1px solid #b6b6b6;height:430px;float: left;">
+		  <table class="table table-striped" style="height: 430px;">
+		    <thead>
+		      <tr style="position: relative;">
+		        <th style="text-align: center;">设备编号</th>
+		        <th style="text-align: center;">心跳时间</th>
+		        <th style="text-align: center;">状态</th>
+		        <th style="text-align: center;">备注</th>
+		      </tr>
+		    </thead>
+
+		    <tbody>
+		    {foreach $device_list as $key=>$v } 
+		      <tr onclick="seach(this)" deviceCode="{$v['deviceCode']}" deviceId="{$v['deviceId']}">
+		        <td style="width: 110px;">{$v['deviceCode']}</td>
+		        <td></td>
+		        <td></td>
+		        <td>{$v['note']}</td>    
+		      </tr>	
+		    {/foreach}
+		    {for start="1" end="13"}
+			  <tr style="height: 35px;">
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>	        
+		      </tr>	
+			{/for}      
+		    </tbody>
+		  </table> 
+		  
+		</div>
+		<!-- 事件列表 -->
+		<div id="DjJyFTbh_content" class="table-responsive " style="width: 69.5%;border:1px solid #b6b6b6;height:750px;margin-left: 30.5%;">
+		  <table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th >触发时间</th>
+		        <th >设备编码</th>
+		        <th >通道号</th>
+		        <th >事件/人员类型</th>	
+		        <th >数量</th>
+		        <th >相似度</th>
+		        <th >备注</th>
+		      </tr>
+		    </thead>
+
+		    <tbody id="capture_event">		    
+		        <!-- 事件列表 -->
+		    </tbody>
+		    <tbody>
+		     {for start="1" end="22"}
+			  <tr style="height: 35px;">
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		        <td></td>
+		      </tr>	
+			 {/for} 
+		    </tbody>
+		  </table> 
+		  
+		</div>
+		
+		<div id="mdWRzz8t_content" style="width: 30%;border:1px solid #b6b6b6;height:310px;margin-top: -310px;overflow: auto;">
+			<table class="table table-striped">		    
+			    <tbody id="mdWRzz8t_userrows">
+			     <tr class="images_base64">
+					<td><img src="" alt="">	 </td>
+			     </tr>
+			     {for start="1" end="22"}
+				  <tr style="height: 35px;">
+			        <td></td>
+			      </tr>	
+				 {/for} 
+			    </tbody>
+			</table> 
+		</div>
+	</div>
+    <div class="elastic">
+		<div class="middle">	
+			<div class="close_x"><span>x</span></div>	
+			<div class="form-horizontal" id="form-submit">
+			  <input type="hidden" id="deviceId" value="">
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">设备编号</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" name="deviceCode" value="" id="deviceCode" placeholder="请输入设备编号">
+			    </div>
+			    <label>
+			      <input id="isHidden" type="checkbox">屏蔽
+			    </label>
+			  </div>
+
+			  
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">经度</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="lat" value="" id="lat" placeholder="">
+			    </div>
+			    <label for="lastname" class="col-sm-2 control-label">纬度</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="lon" value="" id="lon" placeholder="">
+			    </div>
+			  </div>
+			 
+			  <div class="form-group">
+			    <label for="lastname" class="col-sm-3 control-label">高度</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="alt" value="" id="alt" placeholder="">
+			    </div>
+			    <label for="firstname" class="col-sm-2 control-label">楼层</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="floor" value="" id="floor" placeholder="">
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">坐标系</label>
+			    <div class="col-sm-6">
+				    <select id="gisType" name="gisType" class="form-control">
+						<option value="0">WGS84</option>
+						<option value="1">CGCS2000</option>
+						<option value="2">BD09</option>
+						<option value="3">GCJ02</option>
+						<option value="4">西安80</option>
+						<option value="5">北京54</option>
+						<option value="6">其他</option>
+					</select>
+				</div>
+			  </div>
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">设备备注</label>
+			    <div class="col-sm-6">
+			      <textarea class="form-control" rows="3" id="note"></textarea>
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+			    <div class="col-sm-offset-5 col-sm-10">
+			      <button class="btn btn-primary" id="device_submit" style="padding: 5px 45px;">保存</button>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
+	</div>
+	<div id="rightmenu" style="display: none; z-index: 7; position: absolute; top: 160px; left: 145px; visibility: visible;border: 2px solid #3875d7;background-color: #fffff0;">
+	    <ul id="rightmenu_inner" style="display: inline-block; top: 0px; left: 0px;padding: 10px;">
+	        <li id="XpEpbMtT1P_item" onclick="formBlock(this)" action="addDevice" args='add'><span id="XpEpbMtT1P_caption">添加设备</span></li>
+	        <li id="HxZTnDrYia_item" onclick="formBlock(this)" action="editDevice" args='edit'><span id="HxZTnDrYia_caption">编辑设备</span></li>
+
+	        <li id="XU5YhKVeTl_item" action="delDevice" args='del'><span id="XU5YhKVeTl_caption">删除设备</span></li>
+	    </ul>
+	</div>
+	<style>
+	    .elastic{
+	    	display: none;
+			z-index: 9999;
+			width: 550px;
+			margin: 0 auto;
+			border: 1px solid #edf3fe;
+			box-shadow: 0px 0px 1px #000;
+			background-color: #E4DCCA;
+			top: 0px;
+			position: fixed;
+			left: 32%;
+	    }
+		.middle{
+			margin-top: 20px;
+			font-size: 15px;
+			width: 550px;
+		}
+
+		#rightmenu ul li{ 
+			list-style: none;
+			cursor: pointer;
+			padding-bottom: 5px;
+		}
+		
+		.row_current{
+			background-color: #337ab7 !important;
+			color: #fff;
+		}
+
+		.close_x{
+			width: 20px;
+			margin-left: 95%;
+			font-size: 17px;
+			margin-top: -15px;
+			color: #333;
+			text-align: center;
+			cursor: pointer;
+		}
+
+	</style>
+	<script>
+		document.oncontextmenu = function(){return false};
+		var res = document.getElementById('rightmenu');      //找到id为box的div
+        $('.table-responsive').mousedown(function(e){
+            if(e.which!=1){
+              if(e.which===3){ // 1 = 鼠标左键 left; 2 = 鼠标中键; 3 = 鼠标右键                
+                var x = 10;
+                var y = 10;
+                // alert(e.clientX+':'+e.clientY);
+                $("#rightmenu").css("top",e.clientY+'px');//设置提示div的位置
+                $("#rightmenu").css("left",e.clientX+'px');
+                if($('#rightmenu').css('display')=='none'){
+                	var lis = $('#rightmenu_inner').find('li'); //获取所有li
+			        if(lis.hasClass('row_current')){ //判断这些li 有没有Class row_current
+			            lis.removeClass('row_current');//把class row_current 移除
+			        }
+                    res.style.display = 'block';  //显示div盒子
+                }else{
+                    res.style.display = 'none';
+                }
+                      
+              }else{
+                res.style.display = 'none';         //否则不显示div盒子
+              } 
+            }
+          
+          return true;//阻止链接跳转
+        })
+
+        function seach(obj){
+        	var deviceCode=$(obj).attr('deviceCode');
+        	var deviceId=$(obj).attr('deviceId');
+        	var trs = $(obj).parent().find('tr'); //获取所有tr
+	        if(trs.hasClass('row_current')){ //判断这些tr 有没有Class row_current
+	            trs.removeClass('row_current');//把class row_current 移除
+	        }
+        	$(obj).addClass("row_current");
+        	
+        	$('#HxZTnDrYia_item').attr('deviceId',deviceId);
+        	$('#XU5YhKVeTl_item').attr('deviceId',deviceId);
+        	$.post("{:url('api/device/getEventList')}",{deviceId:deviceId,deviceCode:deviceCode,type:'snap'},function(data){
+	            capture_event(data);            
+	        });
+        }
+        
+
+        //事件列表模块调用方法
+	    function capture_event(data){
+	        document.getElementById('DjJyFTbh_content').scrollTop = 0;
+	        $('#capture_event').empty();
+	        for (var i = 0; i <= data.list.length - 1; i++) {
+	            
+	            $str = $('<tr onclick="pic_event(this)" name='+data.list[i]['picUrl']+'></tr>'); 	            	            
+	            $('#capture_event').append($str);
+
+	            var $std1=$('<td>'+data.list[i]['triggerTime']+'</td>');
+	            $str.append($std1);
+
+	            var $std2=$('<td>'+data.list[i]['deviceCode']+'</td>');
+	            $str.append($std2);
+
+	            var $std3=$('<td>'+data.list[i]['channel']+'</td>');
+	            $str.append($std3);
+
+	            var $std4=$('<td>'+data.list[i]['eventType']+'</td>');
+	            $str.append($std4);	
+	            var $std5=$('<td>'+data.list[i]['count']+'</td>');
+	            $str.append($std5);
+
+	            var $std6=$('<td>'+data.list[i]['faceContrast']+'</td>');
+	            $str.append($std6);	
+
+	            var $std7=$('<td>'+data.list[i]['note']+'</td>');
+	            $str.append($std7);
+            
+	        }
+	    }
+
+	    function pic_event(obj){
+	    	document.getElementById('mdWRzz8t_content').scrollTop = 0;
+        	var name=$(obj).attr('name');
+        	var trs = $(obj).parent().find('tr'); //获取所有tr
+	        if(trs.hasClass('row_current')){ //判断这些tr 有没有Class row_current
+	            trs.removeClass('row_current');//把class row_current 移除
+	        }
+        	$(obj).addClass("row_current");
+    		$('.images_base64').empty();
+			var $td = $('<td><img src='+name+' style="width:100%;height:100%;" /></td>');
+            $('.images_base64').append($td);  
+
+        }
+
+        
+        $('#device_submit').click(function(){
+   			var deviceCode = $('#deviceCode').val();
+       	    var isHidden = $('#isHidden').is(':checked') ? 1:0;
+       	    var lat = $('#lat').val();
+       	    var lon = $('#lon').val();
+       	    var alt = $('#alt').val();
+       	    var floor = $('#floor').val();
+       	    var gisType = $('#gisType').val();
+       	    var note = $('#note').val();
+       	    var deviceId = $('#deviceId').val();
+       	    if(deviceId==''){
+       	    	$.ajax({
+	                url: "{:url('api/import/addDevice')}",
+	                type: 'post',
+	                dataType: 'json',
+	                data: {
+	                	deviceCode:deviceCode,	                	
+	                	isHidden:isHidden,
+	            		lat:lat,
+	            		lon:lon,
+	            		alt:alt,
+	            		floor:floor,
+	            		gisType:gisType,
+	            		note:note,
+	            		type:'snap'
+	                },
+	                success:function(data){
+	                	if(data.code==500){
+	            			alert(data.message);
+	                	}else{
+	                		alert(data.message);
+	                		location.reload(); 
+	                	}
+	                	
+	                },
+	                fail:function(){
+	                }
+	            })
+       	    }else{
+       	    	$.ajax({
+	                url: "{:url('api/import/updateDevice')}",
+	                type: 'post',
+	                dataType: 'json',
+	                data: {
+	                	deviceCode:deviceCode,
+	                	isHidden:isHidden,
+	            		lat:lat,
+	            		lon:lon,
+	            		alt:alt,
+	            		floor:floor,
+	            		gisType:gisType,
+	            		note:note,
+	            		deviceId:deviceId,
+	            		type:'snap'
+	                },
+	                success:function(data){
+	                	if(data.code==500){
+	            			alert(data.message);
+	                	}else{
+	                		alert(data.message);
+	                		
+	                	}
+	                	
+	                },
+	                fail:function(){
+	                }
+	            })
+       	    }
+       	    
+        });
+
+        // 点击显示添加设备表单弹框
+        function formBlock(obj){
+        	var action = $(obj).attr('args');
+        	var lis = $(obj).parent().find('li'); //获取所有li
+	        if(lis.hasClass('row_current')){ //判断这些li 有没有Class row_current
+	            lis.removeClass('row_current');//把class row_current 移除
+	        }
+        	$(obj).addClass("row_current");
+        	if(action=='edit'){
+        		var deviceId = $(obj).attr('deviceId');
+        		if(deviceId==undefined){
+        			alert('没有选中设备');
+                  	return false;
+        		}
+        		$('#deviceId').val(deviceId);
+        		$.post("{:url('index/device/deviceOne')}",{deviceId:deviceId},function(data){
+    				if(data.status==0){
+    					alert(data.msg);
+    					return;
+    				}else{
+    					$('#deviceCode').val(data.info.deviceCode);			   			
+			       	    if(data.info.isHidden==1){
+			       	    	$("#isHidden").attr("checked",true);
+			       	    }
+			       	    
+			       	    $('#lat').val(data.info.lat);
+			       	    $('#lon').val(data.info.lon);
+			       	    $('#alt').val(data.info.alt);
+			       	    $('#floor').val(data.info.floor);
+			       	    $("#gisType ").get(0).selectedIndex=data.info.gisType;
+			       	    $('#note').val(data.info.note);       	    
+    				}
+		             	            
+		        });
+        	}else{
+        		$('#deviceCode').val('');
+	       	    $('#deviceId').val('');
+	       	    $("#isHidden").attr("checked",false);	       	    	       	    	       	    
+	       	    $('#lat').val('');
+	       	    $('#lon').val('');
+	       	    $('#alt').val('');
+	       	    $('#floor').val('');
+	       	    $("#gisType").get(0).selectedIndex=0;
+	       	    $('#note').val(''); 
+        	}
+        	$('.elastic').css('display','block');
+        	
+
+        };
+
+        // 关闭弹框
+        $('.close_x').click(function(){
+        	
+        	$('.elastic').css('display','none');
+        });
+
+	    
+
+	</script>
+{/block}

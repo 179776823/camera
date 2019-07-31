@@ -1,0 +1,394 @@
+{extend name='./common/header'}
+{block name='mid'}
+    <style>
+		.table{
+            width:100%;
+            max-width: 100%;
+        }
+        .table>thead>tr{
+            background: #edf7ff;
+        }
+        .table>thead>tr>th {
+            white-space: nowrap;
+            padding: 8px;
+            line-height: 1.42857143;
+        }
+
+    </style>
+    
+    <div style="margin: 0 15px;">
+        <!-- 摄像机设备列表 -->
+        <div style="margin-bottom: 10px;">
+	    	<button type="button" class="btn btn-primary btn-sm" onclick="click_output(this)" camera_id="">添加</button>
+
+			<!-- <form class="form-inline" role="form">
+			  <div class="form-group">
+			    <input type="text" class="form-control" name="keyword" id="name" value="{$Think.session.keyword}" placeholder="请输入关键字">
+			  </div>
+			  
+			  <button type="submit" class="btn btn-default">搜索</button>
+			</form>
+ -->
+	    </div>
+		<div  style="width: 74.5%;border:1px solid #b6b6b6;height:750px;float: left;">
+
+		  <table class="table table-striped" style="margin-bottom: -1px;">
+		  
+		    <thead>
+		      <tr style="">
+		        <th style="width: 12%">ID</th>
+		        <th style="width: 20%">设备编号</th>
+		        <th style="width: 20%">安装地点</th>
+		        <th style="width: 20%">设备IP</th>
+		        <th style="width: 12%">端口号</th>
+		        <th >操作</th>
+		      </tr>
+		    </thead>
+		  </table>
+		  <div class="table-box" style="height: 95%;overflow: auto;">
+			  <table class="table table-striped" >
+			    <tbody>
+			    {foreach $camera_list as $key=>$v } 
+			      <tr>
+			        <td style="width: 12%;">{$v['id']}</td>
+			        <td style="width: 20%;">{$v['deviceCode']}</td>
+			        <td style="width: 20%;">{$v['address']}</td>
+			        <td style="width: 20%;">{$v['IP']}</td>
+			        <td style="width: 12%;">{$v['port']}</td>    
+			        <td>
+						<button type="button" class="btn btn-warning btn-xs" onclick="click_output(this)" camera_id="{$v['id']}">编辑</button>
+		          		<button type="button" class="btn btn-danger btn-xs" onclick="del(this)" camera_id="{$v['id']}">删除</button>
+			        </td>
+			      </tr>	
+			    {/foreach}
+			    {for start="1" end="20"}
+				  <tr style="height: 35px;">
+			        <td></td>
+			        <td></td>
+			        <td></td>
+			        <td></td>
+			        <td></td>
+			        <td></td>	        
+			      </tr>	
+				{/for}      
+			    </tbody>
+			  </table> 
+		  </div>
+		</div>
+		<!-- 接收的图片列表(只显示小图) -->
+		<div id="DjJyFTbh_content" class="table-responsive " style="border:1px solid #b6b6b6;height:750px;margin-left: 75%;">
+		<!-- {foreach $faceImage as $k=>$v}
+		  <div class="row">
+		  {foreach $v as $key=>$val}		
+		    <div class="col-sm-6 col-md-6">
+		        <div class="thumbnail">
+		            <img src="{$val['eventPicUrl']}"
+		                 alt="暂无图片" style="height: 196px;">
+		            <div class="caption">
+		                <h4>缩略图标签</h4>
+		                <p>{$val['createTime']}</p> -->
+		                <!-- <p>
+		                    <a href="#" class="btn btn-primary" role="button">
+		                        按钮
+		                    </a>
+		                    <a href="#" class="btn btn-default" role="button">
+		                        按钮
+		                    </a>
+		                </p> -->
+		    <!--         </div>
+		        </div>
+		    </div>
+		  {/foreach}      
+		  </div>
+		{/foreach} -->
+		</div>
+		
+	</div>
+	<!-- 添加编辑摄像机设备信息 -->
+    <div class="elastic">
+		<div class="middle">	
+			<div class="close_x"><span>x</span></div>	
+			<div class="form-horizontal" id="form-submit">
+			  <input type="hidden" id="cameraId" value="">
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">摄像机安装地点</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" name="address" value="" id="address" placeholder="请输入安装地点">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">摄像机IP</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" name="IP" value="" id="IP" placeholder="请输入摄像机IP">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">端口</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" name="port" value="" id="port" placeholder="请输入端口">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">经度</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="lat" value="" id="lat" placeholder="">
+			    </div>
+			    <label for="lastname" class="col-sm-2 control-label">纬度</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="lon" value="" id="lon" placeholder="">
+			    </div>
+			  </div>
+			 
+			  <div class="form-group">
+			    <label for="lastname" class="col-sm-3 control-label">高度</label>
+			    <div class="col-sm-3">
+			      <input type="number" class="form-control" name="alt" value="" id="alt" placeholder="">
+			    </div>
+			  </div>
+			  
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">坐标系</label>
+			    <div class="col-sm-6">
+				    <select id="gisType" name="gisType" class="form-control">
+						<option value="0">WGS84</option>
+						<option value="1">CGCS2000</option>
+						<option value="2">BD09</option>
+						<option value="3">GCJ02</option>
+						<option value="4">西安80</option>
+						<option value="5">北京54</option>
+						<option value="6">其他</option>
+					</select>
+				</div>
+			  </div>
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">设备编号</label>
+			    <div class="col-sm-6">
+			      <input type="text" class="form-control" name="deviceCode" value="" id="deviceCode" placeholder="请输入设备编号">
+			    </div>
+			  </div>
+			  <div class="form-group">
+			    <label for="firstname" class="col-sm-3 control-label">安装方向</label>
+			    <div class="col-sm-6">
+				    <select id="direction" name="gisType" class="form-control">
+						<option value="0">入口</option>
+						<option value="1">出口</option>
+					</select>
+				</div>
+			  </div>
+			  
+			  <div class="form-group">
+			    <div class="col-sm-offset-5 col-sm-10">
+			      <button class="btn btn-primary" id="camera_submit" style="padding: 5px 45px;">保存</button>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
+	</div>
+	
+	<style>
+	    .elastic{
+	    	display: none;
+			z-index: 9999;
+			width: 550px;
+			margin: 0 auto;
+			border: 1px solid #edf3fe;
+			box-shadow: 0px 0px 1px #000;
+			background-color: #E4DCCA;
+			top: 0px;
+			position: fixed;
+			left: 32%;
+	    }
+		.middle{
+			margin-top: 20px;
+			font-size: 15px;
+			width: 550px;
+		}
+		
+		.row_current{
+			background-color: #337ab7 !important;
+			color: #fff;
+		}
+
+		.close_x{
+			width: 20px;
+			margin-left: 95%;
+			font-size: 17px;
+			margin-top: -15px;
+			color: #333;
+			text-align: center;
+			cursor: pointer;
+		}
+
+	</style>
+	<script>
+		$(function(){
+			faceImage_event(0);
+		})
+        //图片列表模块调用方法
+	    function faceImage_event(type){
+	    	$.get("{:url('index/camera/faceImageList')}",{type:type},function(data) {
+	    		if(data.faceImage.length>=1){
+	    			document.getElementById('DjJyFTbh_content').scrollTop = 0;
+		            $('#DjJyFTbh_content').empty();
+		        
+		    		for (var i = 0; i <= data.faceImage.length - 1; i++) {
+		            
+			            $divs = $("<div class='row'></div>"); 	            	            
+			            $('#DjJyFTbh_content').append($divs);
+			            for(var y = 0; y <= data.faceImage[i].length - 1; y++){
+		            		$divs2 = $("<div class='col-sm-6 col-md-6'><div class='thumbnail'><img src="+data.faceImage[i][y]['eventPicUrl']+" alt='暂无图片' style='height: 196px;'><div class='caption'><h4>缩略图标签</h4><p>"+data.faceImage[i][y]['triggerTime']+"</p></div></div></div>");
+		            		$divs.append($divs2);
+
+			            }
+		            
+			        }
+	    		}
+	    		
+	    	})
+
+	    	// 每30秒请求一次
+	        setTimeout('faceImage_event(1)',2000);
+	        
+	    }
+
+	    
+        $('#camera_submit').click(function(){
+   			var deviceCode = $('#deviceCode').val();
+   			var IP = $('#IP').val();
+       	    var port = $('#port').val();
+       	    var address = $('#address').val();
+       	    var lat = $('#lat').val();
+       	    var lon = $('#lon').val();
+       	    var alt = $('#alt').val();
+       	    var gisType = $('#gisType').val();
+       	    var direction = $('#direction').val();
+       	    var id = $('#cameraId').val();
+       	    if(id==''){
+       	    	$.ajax({
+	                url: "{:url('index/camera/addCamera')}",
+	                type: 'post',
+	                dataType: 'json',
+	                data: {
+	                	deviceCode:deviceCode,	                	
+	            		lat:lat,
+	            		lon:lon,
+	            		alt:alt,
+	            		gisType:gisType,
+	            		direction:direction,
+	            		address:address,
+	            		IP:IP,
+	            		port:port
+	                },
+	                success:function(data){
+	                	if(data.code==500){
+	            			alert(data.message);
+	                	}else{
+	                		alert(data.message);
+	                		location.reload(); 
+	                	}
+	                	
+	                },
+	                fail:function(){
+	                }
+	            })
+       	    }else{
+       	    	$.ajax({
+	                url: "{:url('index/camera/updateCamera')}",
+	                type: 'post',
+	                dataType: 'json',
+	                data: {
+	                	deviceCode:deviceCode,
+	            		lat:lat,
+	            		lon:lon,
+	            		alt:alt,
+	            		gisType:gisType,
+	            		direction:direction,
+	            		address:address,
+	            		IP:IP,
+	            		port:port,
+	            		id:id,
+	                },
+	                success:function(data){
+	                	if(data.code==500){
+	            			alert(data.message);
+	                	}else{
+	                		alert(data.message);
+	                		location.reload(); 	                		
+	                	}
+	                	
+	                },
+	                fail:function(){
+	                }
+	            })
+       	    }
+       	    
+        });
+
+        // 点击显示表单弹框
+        function click_output(obj){
+	        var dis = $('.elastic').css('display');
+	        if(dis=='block'){
+	            $('.elastic').css('display','none');
+	        }else{
+	            $('.elastic').css('display','block');
+	            var camera_id = $(obj).attr('camera_id');
+	            if(camera_id!=''){
+	            	//获取内容
+		            $.post("{:url('index/camera/cameraone')}",{id:camera_id,type:1},function(data){
+		                if(data.status==1){
+		                	$('#address').val(data.info.address);
+		                	$('#deviceCode').val(data.info.deviceCode);
+		                	$('#IP').val(data.info.IP);
+				       	    $('#port').val(data.info.port);			   							       	    
+				       	    $('#lat').val(data.info.lat);
+				       	    $('#lon').val(data.info.lon);
+				       	    $('#alt').val(data.info.alt);
+				       	    $("#gisType ").get(0).selectedIndex=data.info.gisType;
+				       	    $("#direction ").get(0).selectedIndex=data.info.direction;
+				       	    $('#cameraId').val(data.info.id);
+		                }else{
+		                	alert(data.msg);
+		                }
+		            	
+		            });
+	            }else{
+	            	$('#address').val('');
+	            	$('#deviceCode').val('');
+	            	$('#IP').val('');
+				    $('#port').val('');		
+		       	    $('#cameraId').val('');
+		       	    $('#lat').val('');
+		       	    $('#lon').val('');
+		       	    $('#alt').val('');
+		       	    $("#gisType").get(0).selectedIndex=0;
+		       	    $("#direction").get(0).selectedIndex=0;
+	            }
+	            
+	        }
+	    }
+
+	    function del(obj){
+	    	var camera_id = $(obj).attr('camera_id');
+	    	if(confirm("确实要删除吗？")){
+	    		if(camera_id==''){
+		    		alert('id是空的');
+		    		return;
+		    	}
+
+		    	$.post("{:url('index/camera/delCamera')}",{id:camera_id},function(data){		                
+	                alert(data.message);
+	                location.reload(); 		                		            	
+			    });
+	    	}
+	    	
+	    }
+
+        // 关闭弹框
+        $('.close_x').click(function(){
+        	
+        	$('.elastic').css('display','none');
+        });
+
+	</script>
+{/block}
