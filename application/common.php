@@ -103,7 +103,8 @@ function saveBase64Image2($image,$pictype){
     $filePath = '/imgs/' .$imgDir. '/' .date('Ymd',time()). '/';
 
     if(!file_exists(__PUBLIC__.$filePath)){
-       mkdir(__PUBLIC__.$filePath,777,true);
+       mkdir(__PUBLIC__.$filePath,0777,true);
+       chmod(__PUBLIC__.$filePath,0777);
     }
     $filePath = $filePath.$file_name;
     if (file_put_contents(__PUBLIC__.$filePath, base64_decode($image))){
